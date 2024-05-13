@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form class="registration-form">
+            <h2>Регистрация</h2>
+            <div class="form-group">
+                <input type="text" class="input-field" placeholder="Потребителско име" pattern="[A-Za-zА-Яа-я]{1,}" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="input-field" placeholder="Електронна поща (example@domain.com)" pattern="[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+(?:bg|com)$" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="input-field" placeholder="Парола" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" class="input-field" placeholder="Телефонен номер (123-456-7890)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required title="Формат: 123-456-7890">
+            </div>
+            <div class="form-group">
+                <select class="input-field dropdown">
+                    <option value="student">Студент</option>
+                    <option value="teacher">Преподавател</option>
+                    <option value="other">Друго</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Регистрирай ме</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
