@@ -1,1 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>CSS Регресивно Тестване</title>
+		<meta name="author" content="Boril Ignatov" />	
+		
+		<link href="styles/styles.css" rel="stylesheet" />
+		<script src="scripts/script.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container">
+            <header>
+				<hgroup>
+                    <h3>Име и Фамилия: Борил Игнатов</h3>
+                    <h3>Фак. номер: 0MI0600124</h3>
+					<h3>Група: 4</h3>
+					<h3>Курс: 3</h3>
+					<h3>Специалност: Софтуерно инженерство</h3>
+                </hgroup><br />
+				<h1>CSS регресивно тестване (CasperJS), Библиотеки phantomjs и PhantomCSS. Resemble.js: SlimerJS</h1>
+				<div id= "myContents" class="contents">
+					<h2>Съдържание</h2>
+					<ol>
+						<li><a href="#overview">CSS регресивно тестване</a></li>
+						<li><a href="#casperJs">CasperJS</a></li>
+						<li><a href="#phantomJs">PhantomJS</a></li>
+						<li><a href="#phantomCss">PhantomCSS</a></li>
+						<li><a href="#resembleJs">ResembleJS</a></li>
+						<li><a href="#slimerJs">SlimerJS</a></li>
+						<li><a href="#bibliography">Използвана литература</a></li>
+					</ol>
+				</div>
+            </header>
+			<article id="overview_article" class="page-section">
+                <a id="overview"> <h2>CSS регресивно тестване</h2></a>
+				<p>
+					CSS регресивното тестване е ключов аспект от процеса на управление на качеството на уеб дизайна и разработка. 
+					С разрастването на уеб технологиите и появата на все по-сложни уеб сайтове, 
+					важността на гарантиране на стабилността и съвместимостта на CSS стиловете с различни браузъри и 
+					устройства става от съществено значение.
+				</p>
+				<p>
+					Тестването на CSS в регресията се фокусира на откриването и отстраняването на възможни грешки или 
+					несъвместимости в стиловете при внесени промени или актуализации в уеб приложенията. 
+					Това включва проверка на визуални и функционални промени, които могат да се появят в резултат на модификации в CSS кода.
+				</p>
+				<p>
+					В настоящото изложение ще разгледаме значението на CSS регресивното тестване, методите и инструментите, които се използват за него, както и неговата роля в осигуряването на качествен и устойчив уеб дизайн. 
+					Ще обсъдим предимствата, които предоставя регресивното тестване на CSS, както и най-добрите практики за неговото прилагане в процеса на уеб разработка. 
+					В крайна сметка, ще се фокусираме върху значението на автоматизацията и интеграцията на CSS регресивното тестване в цикъла на разработка за постигане на по-ефективен и надежден уеб дизайн.
+				</p>
+				<p>
+                    След всяка промяна във функциите или интерфейса на софтуера се извършват тестове, за да се уверим, че всичко работи както трябва. 
+					Регресивното тестване е метод, при който след промяна в кода на софтуера се повтарят предишно изпълнени тестове, 
+					за да се осигури, че съществуващите функции и интерфейс продължават да функционират коректно след всяка нова промяна.
+                </p>
+                <p>
+                    CSS регресивното тестване се извършва от инструменти за визуална регресия, 
+					като с тях се проверява коректността на изгледа на уеб страниците при промяна на CSS стиловете. 
+					Техният основен принцип е да сравняват две изображения - едното преди промяната и другото след нея. 
+					Резултатът е трето изображение, което показва цветовите разлики между пикселите на двете изображения.
+                </p>
+				<div class="images-container">
+                    <figure>
+                        <img src="img/baseline.png" alt="Оригинално изображение." />
+                        <figcaption><strong>Фигура 1. </strong>Оригинално изображение.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/latest.png" alt="След промяна на оригиналното изображение." />
+                        <figcaption><strong>Фигура 2. </strong>След промяна на оригиналното изображение.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/diff.png" alt="Автоматично генерирано изображение, показващо в оранжево различията между снимките." />
+                        <figcaption><strong>Фигура 3. </strong>Автоматично генерирано изображение, показващо в оранжево различията между предишните снимки.</figcaption>
+                    </figure>
+                </div>				
+                <p>Съществуват няколко инструмента, които се използват при CSS регресивно тестване: PhantomJS, CasperJS, SlimerJS, ResembleJS и PhantomCSS.</p>
+            </article>
+			<article id="casperJs_article" class="page-section">
+                <a id="casperJs">
+                    <h2>CasperJS</h2>
+                </a>
+				
+                <p>
+                    CasperJS е инструмент с отворен код, написан на Javascript и лицензиран през 2011г. от MIT (Massachusetts Institute of Technology). Улеснява процеса на автоматизирано тестване и се използва с браузърите PhantomJS (Webkit) и
+                    SlimerJS(Gecko).<sup><a href="#ref_8">[8]</a></sup> Освен Javascript скриптове, може да работи и с CoffeeScript версия на кода, която се компилира до Javascript.<sup><a href="#ref_9">[9]</a></sup>
+                    Поддържа работа със CSS и DOM селектори, както и XPath изрази. Повече не се поддържа разработката и надграждането му, но е възможно да се използва.
+                    <br />
+                    Работата с него предоставя следните възможности:<sup><a href="#ref_7">[7]</a></sup>
+                </p>
+                <ol>
+                    <li>дефиниране и определяне на реда на изпълнение на различните стъпки при взаимодействие с уеб страница;</li>
+                    <li>попълване и изпращане на потребителски форми;</li>
+                    <li>създаване на скрийншот на изгледа на уеб страница;</li>
+                    <li>тестване на DOM;</li>
+                    <li>логване на събития;</li>
+                    <li>изтегляне на ресурси, включително binary;</li>
+                    <li>създаване на функционални тестови пакети и запазване на резултатите в XUnit XML формат;</li>
+                    <li>извличане на уеб съдържание.</li>
+                </ol>
+                <p>
+                    За използването на CasperJS първоначално е необходимо:<sup><a href="#ref_10">[10]</a></sup>
+                </p>
+                <ul>
+                    <li>да е изтеглен PhantomJS (по-нататък ще го разгледаме)</li>
+                    <li>изтеглен Python в bin директорията на CasperJS</li>
+                    <li>
+                        npm install casperjs (няма възможност за свалянето му през официалния му сайт, понеже вече не е наличен), или през гитхъб пакета След изтеглянето му, при използване на Windows е необходимо да се добави пътя към bin/
+                        директорията на CasperJS като PATH променлива, за да се разпознава <code>casperjs</code> в командния интерфейс.
+                    </li>
+                </ul>
+                <p>Нека разгледаме в повече детайли основните действия с CasperJS:</p>
+                <ul>
+                    <li>
+                        <h3>
+                            Извличане на уеб съдържание
+                        </h3>
+                        Kогато целим извличане на съдържание от уеб страници, резултати от търсене или друга информация, а не толкова автоматизирано изпълнение на тестове, създаваме инстанция на класа <code>casper</code>, чрез която
+                        изпълняваме действия с уеб съдържанието.
+                        <figure>
+                            <pre class="prettyprint">
+var casper = require('casper').create();
+casper.start(URL, function() {
+    if (this.exists('#paragraph_1')) {
+        this.echo('paragraph_1 exists');
+    }
+});
+casper.run();</pre>
+                            <figcaption><strong>Код 1. </strong>Проверка за съществуване на елемент, отговарящ на селектор '#paragraph_1' в страница с адрес URL</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <h3>Изпълняване на тестове</h3>
+                        CasperJS е също така и тестови фреймуърк, което му позволява да конфигурира тестове, да ги изпълнява и да уведомява за резултатите от тях. Конфигурирането на тестови пакети става чрез функцията
+                        <code class="prettyprint">casper.test.begin(test_name, number_tests_to_run, callback_function)</code> , като подаваме три параметъра – името на тестовия пакет, брой тестове да се изпълнят и функция, в която се описват
+                        действията в тестовия пакет.
+                        <figure>
+                            <pre class="prettyprint">
+casper.test.begin('Paragraph_1 exists', 1, function suite(test) {
+   casper.start("URL", function() {
+       test.assertExists('#paragraph_1');
+   }).run(function() {
+       test.done();
+   });
+});</pre>
+                            <figcaption><strong>Код 2. </strong>Конфигуриране и еднократно изпълнение на тест с име 'Paragraph_1 exists'</figcaption>
+                        </figure>
+                        <code>casper.start()</code> отваря уеб страница, след което с <code>test.assertExists</code> проверяваме дали съществува елемент, отговарящ на подадения селектор. След което задаваме край на теста чрез подаването на
+                        callback от функцията <code>test.done()</code> към <code>casper.run() </code> При изпълнението на скрипта в конзолата, е необходимо да добавим <code>test</code> преди името му.
+                        <code class="prettyprint">casperjs test casper_test_1.js</code>
+                        Така осъществихме проверка за съществуването на елемент по още един начин - чрез изпълнението на тест.
+                    </li>
+                    <li>
+                        <h3>Попълване на уеб форма</h3>
+                        <figure>
+                            <pre class="prettyprint">
+casper.fill('form#signInForm', {
+    'username' : 'santa',
+    'password' : 'presents'
+}, true);</pre>
+                            <figcaption><strong>Код 3. </strong>Попълване на уеб форма</figcaption>
+                        </figure>
+                        където като първи аргумент подаваме формата с посочване на ID, втори аргумент –масив от двойки елемент:стойност, трети аргумент (true/false), дали автоматично да се изпрати формата от браузъра, когато е попълнена.
+                    </li>
+                    <li>
+                        <h3>Други възможности</h3>
+                        <ul>
+                            <li>
+                                CasperJS позволява изтеглянето на резултатите от тестовите пакети в XUnit XML формат, който е съвместим с инструменти за непрекъсната интеграция като Jenkins. За целта, при извикването на скрипта в конзолата
+                                добавяме и опцията <code>–xunit = име_на_файл.xml</code>. Там се съдържа информация за изпълнените тестови пакети, броят изпълнени тестове и колко от тях са неуспешни, както и време на изпълнение на тестовете
+                                във timestamp формат.
+                            </li>
+                            <li>
+                                Идва с вграден парсър, който съхранява подадените със скрипта аргументи и опции в две променливи <code>casper.cli.arg</code>, <code>casper.cli.options</code>, позволява да проверяваме дали ги има по индекс
+                                или име <code>casper.cli.has(0)</code>, или да взима стойността им посредством <code>casper.cli.get(0)</code>.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+            <article id="phantomJs_article" class="page-section">
+                <a id="phantomJs">
+                    <h2>PhantomJS</h2>
+                </a>
+                <p>
+                    Пуснат за употреба през 2011, PhantomJS е браузърен скриптов инструмент, който позволява автоматизирано тестване на уеб приложения, извършване на уеб скрапинг и генериране на PDF файлове от уеб страници. 
+					Той е базиран на WebKit двигатела и позволява изпълнението на JavaScript код във виртуална среда. 
+					Предимствата му включват възможността за изпълнение на скриптове без визуално присъствие на браузъра, като се осигурява по-бързо и ефективно тестване и скрапинг на уеб съдържание. <sup><a href="#ref_1">[1]</a></sup> Понастоящем разработката и поддръжката му са прекратени.
+                    <sup><a href="#ref_2">[2]</a></sup>
+                </p>
+                <p>
+                    Понеже към днешна дата изтеглянето му не е възможно от официалната страница във формат на архив, може да използваме командния интерфейс, или през github. При изтеглянето на Node.js се включва и свалянето на npm
+                    инсталатор, който може да използваме за тегленето на различни пакети, сред които и PhantomJS. С тази команда изтегляме PhantomJS: <code class="prettyprint">npm install phantomjs-prebuilt</code>
+                    <sup><a href="#ref_3">[3]</a></sup> След успешното инсталиране на пакета, е необходимо да се добави пътят към изпълнимия файл (phantomjs.exe) в PATH променливата. Това позволява изпълнението на .js файлове чрез
+                    <code>phantomjs</code> в командния прозорец по този начин: <code class="prettyprint">phantomjs filename.js</code>
+                </p>
+                PhantomJS се използва за:
+                <ul>
+                    <li>
+                        <h3>
+                            автоматизиран достъп до уеб страници и извличане на информация чрез DOM API или библиотеки като jQuery<sup><a href="#ref_4">[4]</a></sup>
+                        </h3>
+                        PhantomJS позволява автоматизирано зареждане и манипулация на уеб страници, без необходимостта действията да се извършват през графичния интерфейс на даден браузър, което спестява много време при тестването на
+                        по-обемни уеб страници. По-долу е даден пример за достъпването на елемент от уеб страницата чрез DOM API:
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require('webpage').create();
+page.open("URL", function(status) {
+  if (status !== 'success') {
+    console.log('Unable to access network');
+  } else {
+    var txt = page.evaluate(function() {
+      return document.getElementById("paragraph_1").textContent;
+    });
+    console.log(txt);
+  }
+  phantom.exit();
+});</code></pre>
+                            <figcaption><strong>Код 4. </strong>Извличане на текст чрез DOM API след отваряне на страница с адрес URL</figcaption>
+                        </figure>
+                        <code class="prettyprint">phantom.exit()</code> е задължително да се добавя в края, защото при неговата липса браузърът продължава да изпълнява скрипта в конзолата
+                    </li>
+                    <li>
+                        <h3>
+                            създаване на скрийншоти<sup><a href="#ref_5">[5]</a></sup> на уеб страници и съхраняването им в PDF, JPEG, PNG или GIF формат. Може да запаметява и изгледа на SVG файлове, изображения и Canvas елементи.
+                        </h3>
+                        <figure>
+                            <pre class="prettyprint"><code>var webpage = require('webpage').create();
+webpage.open("URL", function() {
+    webpage.render('GhostImage.jpeg');
+    phantom.exit();
+});</code></pre>
+                            <figcaption><strong>Код 5. </strong>Създаване на скрийншот на страница с адрес URL</figcaption>
+                        </figure>
+                    </li>
+                    <li><h3>изпълнение на функционални тестове с различни frameworks (Jasmine, WebDriver, QUnit, Mocha)</h3></li>
+					<p>
+						Ето и един пример с Jasmine:<sup><a href="#ref_18">[18]</a></sup>
+					</p>
+					<figure>
+							<pre class="prettyprint"><code>"use strict";
+var system = require('system');
+
+function waitFor(testFx, onReady, timeOutMillis) {
+    var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3001, //< Default Max Timeout is 3s
+        start = new Date().getTime(),
+        condition = false,
+        interval = setInterval(function() {
+            if ( (new Date().getTime() - start < maxtimeOutMillis) && !condition ) {
+                // If not time-out yet and condition not yet fulfilled
+                condition = (typeof(testFx) === "string" ? eval(testFx) : testFx()); //< defensive code
+            } else {
+                if(!condition) {
+                    // If condition still not fulfilled (timeout but condition is 'false')
+                    console.log("'waitFor()' timeout");
+                    phantom.exit(1);
+                } else {
+                    // Condition fulfilled (timeout and/or condition is 'true')
+                    console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
+					// Do what it's supposed to do once the condition is fulfilled
+                    typeof(onReady) === "string" ? eval(onReady) : onReady(); 
+                    clearInterval(interval); //< Stop this interval
+                }
+            }
+        }, 100); //< repeat check every 100ms
+};
+
+
+if (system.args.length !== 2) {
+    console.log('Usage: run-jasmine.js URL');
+    phantom.exit(1);
+}
+
+var page = require('webpage').create();
+
+// Route "console.log()" calls from within the Page context to the main Phantom context (i.e. current "this")
+page.onConsoleMessage = function(msg) {
+    console.log(msg);
+};
+
+page.open(system.args[1], function(status){
+    if (status !== "success") {
+        console.log("Unable to open " + system.args[1]);
+        phantom.exit(1);
+    } else {
+        waitFor(function(){
+            return page.evaluate(function(){
+                return document.body.querySelector('.symbolSummary .pending') === null
+            });
+        }, function(){
+            var exitCode = page.evaluate(function(){
+                try {
+                    console.log('');
+                    console.log(document.body.querySelector('.description').innerText);
+                    var list = document.body.querySelectorAll('.results > #details > .specDetail.failed');
+                    if (list && list.length > 0) {
+                      console.log('');
+                      console.log(list.length + ' test(s) FAILED:');
+                      for (i = 0; i < list.length; ++i) {
+                          var el = list[i],
+                              desc = el.querySelector('.description'),
+                              msg = el.querySelector('.resultMessage.fail');
+                          console.log('');
+                          console.log(desc.innerText);
+                          console.log(msg.innerText);
+                          console.log('');
+                      }
+                      return 1;
+                    } else {
+                      console.log(document.body.querySelector('.alert > .passingAlert.bar').innerText);
+                      return 0;
+                    }
+                } catch (ex) {
+                    console.log(ex);
+                    return 1;
+                }
+            });
+            phantom.exit(exitCode);
+        });
+    }
+});	
+							</code></pre>
+							<figcaption><strong>Код 6. </strong>Автоматизирано тестване на уеб страници с помощта на инструмента PhantomJS</figcaption>
+					</figure>					
+                    <li>
+                        <h3>
+                            monitoring на зареждането на уеб страници<sup><a href="#ref_6">[6]</a></sup> и създаване на export в HAR файлов формат. Позволява автоматизиран анализ на работата на страниците чрез Jenkins и YSlow.
+                        </h3>
+                        PhantomJS разрешава наблюдението върху мрежовия трафик и това го прави подходящ за изготвянето на анализи относно поведението на мрежата и нейния пърформънс. Той проследява комуникацията клиент –сървър: изпращането
+                        на заявки за достъп до ресурси (onResourceRequested) и получаването на заявки (onResourceReceived) и на базата на получената информация определя поведението на мрежата.
+
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require('webpage').create();
+page.onResourceRequested = function(request) {
+  console.log('Request ' + JSON.stringify(request, undefined, 4));
+};
+page.onResourceReceived = function(response) {
+  console.log('Receive ' + JSON.stringify(response, undefined, 4));
+};
+page.open(URL);</code></pre>
+                            <figcaption><strong>Код 7.</strong> Проследяване на заявки за изпращане/получаване на данни на уеб страница с адрес URL</figcaption>
+                        </figure>
+                        Комуникацията между клиент-сървър в мрежата може да се проследи и в HAR (HTTP Archive) формат чрез използването на netsniff.js<sup><a href="#ref_17">[17]</a></sup> скрипта и подаването на URL на желаната страница
+                        като първи параметър в конзолата така: <code>phantomjs netsniff.js URL</code>. Изведената информация може да бъде визуализирана във вид на диаграма посредством онлайн инструмента HAR viewer.
+                    </li>
+                </ul>
+            </article>
+			<article id="phantomCss_article" class="page-section">
+                <a id="phantomCss"><h2>PhantomCSS</h2></a>
+
+                <p>
+                    PhantomCSS е инструмент за тестване на уеб приложения, който се използва за автоматизирано сравнение на визуални промени между различни версии на уеб страници. Той е базиран на двигателя на браузъра PhantomJS и предоставя възможност за създаване на тестове за визуални промени, които да се изпълняват във виртуална среда.
+				</p>
+                <p>
+                    Основната цел на PhantomCSS е да помогне на разработчиците и тестерите да открият нежелани промени в дизайна или стиловете на уеб приложенията, които могат да възникнат при въвеждане на нов код или промени във вече съществуващия. Като част от процеса на тестване, PhantomCSS засича визуалните разлики между референтни и текущи версии на уеб страници и генерира доклади за откритите промени.
+				</p>
+				<p>
+					Въз основа на изображенията на уеб страниците, PhantomCSS създава снимки на страниците и сравнява пикселите в тях, за да идентифицира всякакви разлики във визуалните елементи като цветове, размери, позициониране и други стилове. Този процес на автоматично сравнение прави PhantomCSS полезен инструмент за регресионно тестване на уеб приложенията и за осигуряване на визуална стабилност след всяка промяна в кода.
+				</p>
+				<p>
+					Сравняващите изображения се създават чрез функцията <code class="prettyprint">phantomcss.screenshot("#feedback-form", "Responsive Feedback Form");</code> където като първи параметър се подава селектор на елемента, който
+                    ще снимаме, а втория параметър задава името на скрийншота.
+                </p>
+                <h3>
+                    Добри практики<sup><a href="#ref_16">[16]</a></sup>
+                </h3>
+                <ul>
+                    <li>
+                        Препоръчва се тестването на отделни елементи на потребителския интерфейс, вместо тестването на цели страници. Така по-лесно се проследява къде има разминавания в дизайна, а и тестването на цели страници води до риска
+                        промяната на размера на текст в един елемент да бъде причина за множество провалени тестове.
+                    </li>
+                    <li>Тестването на всички елементи поотделно също не е ефективно. Целта е да се обхване покритие с по-малко тестове, да се постигне балансирано разпределение на елементите.</li>
+                    <li>
+                        Желателно е да не се използват сложни CSS селектори, id-тата са препоръчителни, затова е нужно още при писането на кода да се предвиди добро разделение на елементите на интерфейса по групи, за да се достъпват
+                        по-лесно.
+                    </li>
+                </ul>
+                <h3>Инсталация</h3>
+                Възможно е да се изтегли чрез <code class="prettyprint">npm install phantomcss</code> или чрез <br /><code class="prettyprint">git clone git://github.com/HuddleEng/PhantomCSS.git</code><br />
+                <h3>Пример</h3>
+                <figure>
+                    <pre class="prettyprint"><code>var phantomcss = require('phantomcss');
+// start a casper test
+casper.test.begin('Tags', function(test) {
+	phantomcss.init({
+		rebase: casper.cli.get('rebase')
+	});
+	// open page
+	casper.start('URL');
+	// set your preferred view port size
+	casper.viewport(1024, 768);
+	casper.then(function() {
+		// take the screenshot of the whole body element and save it under "body.png". 
+		// The first parameter is actually a CSS selector
+		phantomcss.screenshot(“#button_submit”,”button_submit.png”);
+	});
+	casper.then(function now_check_the_screenshots() {
+		// compare screenshots
+		phantomcss.compareAll();
+	});
+	// run tests
+	casper.run(function() {
+		console.log('\nTest Completed.');
+		casper.test.done();
+	});
+});</code></pre>
+                    <figcaption><strong>Код 8. </strong>CasperJS тест, в който се използва PhantomCSS</figcaption>
+                </figure>
+				<p>
+					Обобщавайки, PhantomCSS е инструмент за автоматизирано сравнение на визуални промени в уеб приложенията, който помага на разработчиците и тестерите да открият и отстранят визуални дефекти и да подобрят качеството на своите продукти.
+				</p>
+            </article>
+			<article id="resembleJs_article" class="page-section">
+                <a id="resembleJs"><h2>ResembleJS</h2></a>
+
+                <p>
+                    Resemble.js е JavaScript библиотека, която позволява на разработчиците да извършват визуални тестове върху уеб страници или графични потребителски интерфейси. 
+					Тази библиотека предоставя възможност за сравнение на изображения, като анализира визуалните разлики между тях. 
+				</p>
+				<p>
+					Основната цел на Resemble.js е да автоматизира процеса на тестване на визуалните елементи на уеб страниците или приложенията, 
+					като се проверява дали промените в кода не са причинили нежелани промени в изгледа на потребителския интерфейс. 
+					Библиотеката предоставя различни възможности за сравнение на изображения, като сравнение на цветове, форми, текстури и други визуални атрибути. 
+					Това позволява на разработчиците да откриват и решават проблеми с изгледа на техните уеб страници или приложения, преди те да станат видими за потребителите. 
+				</p>
+				<p>
+					С помощта на Resemble.js, разработчиците могат да създават автоматизирани тестове, които да се изпълняват при всяка промяна в кода, осигурявайки така по-голяма стабилност и качество на техните проекти.<br />
+                    Някои от функционалностите, които предлага, са: <sup><a href="#ref_14">[14]</a></sup>
+                </p>
+                <ul>
+                    <li>извлича първоначален анализ на изображението по неговите RGB цветови стойности;</li>
+                    <li>сравнява две изображения и уеднаквява размера на второто с първото изображение;</li>
+                    <li>след първото сравнение позволява смяна на метода за сравнение – например, може да игнорира цветове;</li>
+                    <li>може да конфигурира как да се отбелязват различията;</li>
+                    <li>може да задава и изключва отрязък от уеб страницата.</li>
+                </ul>
+            </article>
+            <article id="slimerJs_article" class="page-section">
+                <a id="slimerJs"><h2>SlimerJS</h2></a>
+
+                <p>
+                    SlimerJS е инструмент за автоматизация на уеб действия, който е базиран на Gecko. 
+					Той позволява на потребителите да изпълняват JavaScript код върху уеб страници, да извършват тествания и да скрейпват уеб съдържание. 
+					SlimerJS е съвместим с различни операционни системи и може да бъде интегриран с различни езици за програмиране, като например JavaScript и Python. 
+					Той предоставя богати възможности за навигация по уеб страници, манипулация на DOM елементи и тестване на различни сценарии.<br />
+                    Ето още някои от разликите между SlimerJS и PhantomJS:<sup><a href="#ref_11">[11]</a></sup>
+                </p>
+                <strong>Javascript engine</strong>
+                <ul>
+                    <li>SlimerJS имплементира повечето от особеностите на ES6</li>
+                    <li>възможни са разминавания в съобщенията за грешки за ReferenceError между двете платформи Gecko и WebKit</li>
+                </ul>
+                <strong>DOM</strong>
+                <ul>
+                    <li>В Gecko, стойността на <code>&lt;input type=file&gt;</code> е само името на файла, докато при PhantomJS се генерира път, започващ със <code>c:\\fakepath\\</code></li>
+                    <li>SlimerJS не поддържа innerText свойството на елементите, за разлика от PhantomJS</li>
+                </ul>
+                <strong>Network</strong>
+                <ul>
+                    <li>
+                        Поради Gecko, SlimerJS има по-различно поведение в сравнение с Phantomjs's при HTTP статус кодовете 102, 118 and 408. Ако SlimerJS има <code>response.status = null</code>, това най-вероятно се дължи на един от
+                        горепосочените кодове.
+                    </li>
+                    <li>SlimerJS позволява пренасочване на уеб страници, за разлика от PhantomJS</li>
+                </ul>
+                <strong>API</strong>
+                <ul>
+                    <li>
+                        При SlimerJS <code>webpage.open()</code> връща promise, което се присвоява на асинхронните методи като заместител на стойност за връщане преди да са се изпълнили, точно както на синхронните методи се присвоява
+                        конкретна стойност.
+                    </li>
+                    <li>
+                        SlimerJS имплементира същия API на PhantomJS с малки разлики, понеже идеята зад него е да изпълнява всички скриптове, които са били разработени за PhantomJS и към него да се добавят нови функционалности. Това го
+                        прави съвместим и с инструменти като CasperJS.
+                    </li>
+                </ul>
+                <strong>
+                    Инсталация<sup><a href="#ref_12">[12]</a></sup>
+                </strong>
+                <br />
+                <p>
+                    SlimerJS работи на всяка платформа, където е наличен Firefox: Windows, Linux(32-bit, 64-bit), Mac OS X. Firefox е препоръчително да е с версия между 53 - 59. Има възможност да се променят първоначалните настройки на
+                    SlimerJS и да се зададат нови стойности на минимална и максимална версия на Firefox. Това не е препоръчително, тъй като има риск по-новите (и по-старите версии) на Firefox да се различават съществено по API, който
+                    предоставят, и това да доведе до неочаквано поведение на SlimerJS, който работи с него.
+                </p>
+                <p>
+					Може да бъде изтеглен от пакетна система, като npm, или като архив от официалния сайт. 
+					<code class="prettyprint">npm install slimerjs</code>
+				</p>
+                <p>
+                    SlimerJS изпълнява скриптовете в празен прозорец, който не се вижда от потребителя. 
+					Следователно имаме обект document, обекти window и други, чрез които могат да се изпълнят различни задачи. 
+					Ако работим в нормалния режим
+                    на SlimerJS, който не е headless, при изпълнението на скрипт в конзолата ще се зареди и прозорец. 
+					Ако използваме Firefox 56+, при добавянето на опцията <code>-–headless</code> към командния ред ще спре да се показва.
+                    Прозореца може да се затваря и автоматично, при добавянето на <code class="prettyprint">slimer.exit()</code> или <code class="prettyprint">phantom.exit()</code> в края на скрипта.
+                </p>
+                <strong>Основните функционалности, които SlimerJS предлага:</strong>
+                <ul>
+                    <li>
+                        <h3>
+                            Зареждане на модули<sup><a href="#ref_13">[13]</a></sup>
+                        </h3>
+                        Всички компоненти и библиотеки, предоставени от SlimerJS, се съхраняват в модули. Модулът е javascript файл, който експортва променливи и фукции, като ги прави достъпни за други файлове/модули. Импортването на модули
+                        се осъществява чрез <code class="prettyprint">require("webpage")</code> функцията, която приема като параметър името на модула и връща обект, който има всички негови експортнати функции и променливи. Следва се
+                        стандарта за модули на CommonJS, като към момента не се поддържа ES6 модула. SlimerJS има почти идентични модули с PhantomJS (webpage, fs, webserver, system), но и допълнителни от Mozilla Addons SDK.
+                    </li>
+                    <li>
+                        <h3>Отваряне на уеб страници</h3>
+                        Главната цел на SlimerJS е да отваря уеб страници и да извършва някакви действия върху тях, или да извлича информация. За това се използва модулът <code>webpage</code>. Той предоставя само една функция,
+                        <code class="prettyprint">create()</code>, която създава обект на уебстраница.
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require("webpage").create();
+page.open("http://slimerjs.org")
+	.then(function(status){
+		if (status == "success") {
+			console.log("The title of the page is: "+ page.title);
+		}
+		else {
+			console.log("Sorry, the page is not loaded");
+		}
+		page.close();
+		phantom.exit();
+	});
+</code></pre>
+                            <figcaption><strong>Код 9. </strong>Отваряне на уеб страница и извличане на нейното заглавие чрез SlimerJS</figcaption>
+                        </figure>
+                        При извикването на метода <code class="prettyprint">open()</code> върху обекта, той връща <code>promise</code>, което позволява изпълнението на асинхронни задачи последователно. В
+                        текущия пример, обектът зарежда страницата на посочения URL и след това изпълнява стъпката <code>then</code>. Същия пример може да се изпълни и с PhantomJS API, с разликата, че обектът на страницата не връща
+                        <code>promise</code>, а callback функция на <code class="prettyprint">open()</code>.
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require("webpage").create();
+page.open("http://slimerjs.org", function(status){
+	if (status == "success") {
+		console.log("The title of the page is: "+ page.title);
+	}
+	else {
+		console.log("Sorry, the page is not loaded");
+	}
+page.close();
+phantom.exit();
+});</code></pre>
+                            <figcaption><strong>Код 10. </strong>Отваряне на уеб страница и извличане на нейното заглавие чрез PhantomJS</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <h3>Изпълняване на Javascript функции</h3>
+                        Функцията <code class="prettyprint">evaluate()</code> позволява да се изпълняват JS функции в уеб страницата, която сме отворили. Няма възможност да се извикват функции и променливи, дефинирани в скрипта. Функцията
+                        може да връща стойност от типа масив, число, стринг или обект, но не и DOM обект. Ако искаме да върнем в конзолата на командния интерфейс съобщение, което е било логнато в конзолата на отворената от SlimerJS
+                        страница, е нужно да дадем callback на свойството <code>onConsoleMessage</code>, иначе съобщението няма да се покаже.
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require('webpage').create();
+page.onConsoleMessage = function (msg) {
+	console.log(msg);
+};
+page.open("http://slimerjs.org", function (status) {
+	var mainTitle = page.evaluate(function () {
+	console.log('message from the web page');
+	return document.querySelector("h1").textContent;
+});
+console.log('First title of the page is ' + mainTitle);
+slimer.exit()
+});</code></pre>
+                            <figcaption><strong>Код 11. </strong>Изпълняване на Javascript функция в отворената страница</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <h3>Създаване на скрийншоти</h3>
+                        Както PhantomJS, така и SlimerJS поддържа опцията за създаване на скрийншот на уеб страница. Чрез <code>viewportSize</code> се задава размера на прозореца, на който ще съхраним снимка, което става чрез
+                        <code>render</code>, където като аргумент се посочва името на скрийншота и в какъв файлов формат ще е. После може да го намерим в директорията, където е изпълнена командата.
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require('webpage').create();
+page.open("http://slimerjs.org", function (status) {
+	page.viewportSize = { width:1024, height:768 };
+	page.render('screenshot.png')
+});</code></pre>
+                            <figcaption><strong>Код 12. </strong>Създаване на скрийншот в SlimerJS</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <h3>Проследяване на мрежовия трафик (Network monitoring)</h3>
+                        Всички HTTP комуникации могат да бъдат проследени. <code>onLoadStarted </code> проследява кога започва зареждането на всички ресурси в страницата, и <code>onLoadFinished</code> връща когато всички от тях са заредени.
+                        Подобно на тях, <code>onResourceRequested</code> и <code>onResourceReceived</code> се използват за проследяване на заявки и техните отговори. Следващия пример показва времето, което е необходимо за зареждането на
+                        страницата, достъпна чрез URL.
+                        <figure>
+                            <pre class="prettyprint"><code>var page = require('webpage').create();
+var startTime;
+page.onLoadStarted = function () {
+	startTime = new Date()
+};
+page.onLoadFinished = function (status) {
+	if (status == "success") {
+		var endTime = new Date()
+		console.log('The page is loaded in '+ ((endTime - startTime)/1000)+ " seconds" );
+	}
+	else
+		console.log("The loading has failed");
+};
+page.open(URL);
+</code></pre>
+                            <figcaption><strong>Код 13. </strong>Проследяване на заявки - време за зареждане на страница</figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </article>
+            <article id="bibliography_article" class="page-section">
+                <a id="bibliography"><h2>Използвана литература</h2></a>
+                <a id="ref_1">[1] "PhantomJS - Scriptable Headless Browser", </a><a href="https://phantomjs.org/">https://phantomjs.org/ </a><br />
+                <a id="ref_2">[2] Ariya Hidayat, "PhantomJS - Scriptable Headless Webkit", 30th of May 2023, </a><a href="https://github.com/ariya/phantomjs">https://github.com/ariya/phantomjs </a><br />
+                <a id="ref_3">[3] Dan Pupius and Nick Santos, "phantomjs", 4th of July 2016, </a><a href="https://www.npmjs.com/package/phantomjs">https://www.npmjs.com/package/phantomjs</a><br />
+                <a id="ref_4">[4] "Page Automation with PhantomJS", </a><a href="https://phantomjs.org/page-automation.html">https://phantomjs.org/page-automation.html</a><br />
+                <a id="ref_5">[5] Samuel Oloruntoba, "What is PhantomJS and How is it Used?", </a><a href="https://scotch.io/tutorials/what-is-phantomjs-and-how-is-it-used">https://scotch.io/tutorials/what-is-phantomjs-and-how-is-it-used</a><br />
+                <a id="ref_6">[6] "Network Monitoring with PhantomJS", </a><a href="https://phantomjs.org/network-monitoring.html">https://phantomjs.org/network-monitoring.html</a><br />
+                <a id="ref_7">[7] Juga Paazmaya, "CasperJS", </a><a href="https://github.com/casperjs/casperjs">https://github.com/casperjs/casperjs</a><br />
+                <a  id="ref_8">[8] Roberta Haiura, "CasperJS - Automated Testing of Web Applications with JavaScript", </a><a href="https://www.methodsandtools.com/tools/casperjs.php">https://www.methodsandtools.com/tools/casperjs.php</a><br />
+                <a id="ref_9">[9] Ken Soh, "CoffeeScript version", 19th of June 2020, </a><a href="https://casperjs.readthedocs.io/en/latest/quickstart.html#coffeescript-version">https://casperjs.readthedocs.io/en/latest/quickstart.html#coffeescript-version</a><br />
+                <a  id="ref_10">[10] Dominik Ritter and Ryan Null, "Installation", 6th of October 2016, </a><a href="https://casperjs.readthedocs.io/en/latest/installation.html">https://casperjs.readthedocs.io/en/latest/installation.html</a><br />
+                <a  id="ref_11">[11] Avindra Goolcharan, "Differences with PhantomJS", 17th of May 2016, </a><a href="https://github.com/laurentj/slimerjs/blob/master/docs/differences-with-phantomjs.rst">https://github.com/laurentj/slimerjs/blob/master/docs/differences-with-phantomjs.rst</a><br />
+                <a id="ref_12">[12] Laurent Jouanneau, "Download - Install SlimerJS on your computer", 7th of November 2021, </a><a href="https://slimerjs.org/download.html">https://slimerjs.org/download.html</a><br />
+                <a id="ref_13">[13] "Quick Start - SlimerJS", </a><a href="https://docs.slimerjs.org/current/quick-start.html">https://docs.slimerjs.org/current/quick-start.html</a><br />
+                <a id="ref_14">[14] James Cryer, "Resemble.JS", 7th of June 2023, </a><a href="https://github.com/rsmbl/Resemble.js">https://github.com/rsmbl/Resemble.js</a><br />
+                <a id="ref_15">[15] Pavels Jelisejevs, "Visual Regression Testing with PhantomCSS", 21st of July 2016, </a><a href="https://www.sitepoint.com/visual-regression-testing-with-phantomcss/">https://www.sitepoint.com/visual-regression-testing-with-phantomcss/</a><br />
+                <a id="ref_16">[16] HuddleEng, "PhantomCSS - Best Practices", </a><a href="https://github.com/HuddleEng/PhantomCSS">https://github.com/HuddleEng/PhantomCSS</a><br />
+                <a id="ref_17">[17] Steven Masala and Vitaly Slobodin, "netsniff.js", 22nd of December 2015, </a><a href="https://github.com/ariya/phantomjs/blob/master/examples/netsniff.js">https://github.com/ariya/phantomjs/blob/master/examples/netsniff.js</a><br />
+				<a id="ref_18">[18] Steven Masala and Vitaly Slobodin, "run-jasmine.js", 22nd of December 2015, </a><a href="https://github.com/ariya/phantomjs/blob/master/examples/run-jasmine.js">https://github.com/ariya/phantomjs/blob/master/examples/run-jasmine.js</a><br />
+			</article>
+        </div>
+	</body>
+</html>
 
