@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Домашно 3</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script src="script/registration.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <form class="registration-form" name="userInput" id="userInputForm" onsubmit="validateForm(event)">
+            <h2>РЕГИСТРАЦИЯ</h2>
+            <div class="form-group">
+                <input type="text" class="input-field" id="usernameInput" placeholder="Потребителско име" />
+                <div class="error" id="usernameInputError"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-field" id="namesInput" placeholder="Име и Фамилия" />
+                <div class="error" id="namesInputError"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-field" id="emailInput" placeholder="E-mail" />
+                <div class="error" id="emailInputError"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="input-field" id="passwordInput" placeholder="Парола" />
+                <div class="error" id="passwordInputError"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-field" id="streetInput" placeholder="Улица" />
+                <div class="error" id="streetInputError"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-field" id="cityInput" placeholder="Град" />
+                <div class="error" id="cityInputError"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-field" id="postcodeInput" placeholder="Пощенски код" />
+                <div class="error" id="postcodeInputError"></div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Регистрирай се</button>
+            </div>
+            <div id="errorMessage"></div>
+            <div id="successMessage"></div>
+        </form>
+    </div>
+</body>
+
+</html>
