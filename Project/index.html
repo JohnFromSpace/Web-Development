@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360° Panorama Annotation</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <h2>Controls</h2>
+            <div class="control-group">
+                <label for="uploadImage">Upload Image:</label>
+                <input type="file" id="uploadImage" accept="image/*">
+            </div>
+            <div class="control-group">
+                <label for="markerLabel">Marker Label:</label>
+                <input type="text" id="markerLabel" placeholder="Enter marker label">
+            </div>
+            <div class="control-group">
+                <button id="addMarkerBtn" class="btn">Add Marker</button>
+            </div>
+            <div class="control-group">
+                <button id="addTourMarkerBtn" class="btn">Add Tour Marker</button>
+            </div>
+            <div class="control-group">
+                <button id="loadAllMarkersBtn" class="btn">Load All Markers</button>
+            </div>
+            <div class="control-group">
+                <button id="clearAllMarkersBtn" class="btn">Clear All Markers</button>
+            </div>
+            <div class="control-group">
+                <button id="exportTxtBtn" class="btn">Export Annotations as Text</button>
+                <button id="exportExcelBtn" class="btn">Export Annotations as Excel</button>
+                <button id="exportJsonBtn" class="btn">Export Annotations as JSON</button>
+                <button id="importJsonBtn" class="btn">Import Annotations from JSON</button>
+                <button id="exportSvgBtn" class="btn">Export as SVG</button>
+            </div>
+            <div class="control-group">
+                <button id="generateLinkBtn" class="btn">Generate Shareable Link</button>
+            </div>
+            <a href="server/logout.php" class="btn logout">Logout</a>
+        </div>
+        <div id="content">
+            <div id="panorama"></div>
+            <div id="fixedCursor"></div>
+            <img id="fallbackImage" src="fallback.jpg" alt="Fallback Image" style="display: none;">
+        </div>
+        <div id="hotspotSidebar">
+            <h2>Current Hotspots</h2>
+            <ul id="hotspotList"></ul>
+        </div>
+    </div>
+    <input type="file" id="jsonFileInput" style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.2/dist/html2canvas.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
