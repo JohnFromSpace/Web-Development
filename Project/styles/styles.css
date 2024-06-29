@@ -1,0 +1,222 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+}
+
+/* Main Page Styling */
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+#main h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+#main .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#main .btn {
+    padding: 10px 20px;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #343a40;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#main .btn:hover {
+    background-color: #e0a800;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid red;
+    background-color: #ffe6e6;
+    border-radius: 5px;
+}
+
+/* Sidebar Styling */
+#container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#sidebar, #hotspotSidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px; /* Reduced padding */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+}
+
+#sidebar h2, #hotspotSidebar h2 {
+    margin-top: 0;
+    color: #ffc107;
+}
+
+#sidebar .control-group, #hotspotSidebar .control-group {
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+#sidebar label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#sidebar input[type="file"],
+#sidebar input[type="text"] {
+    width: 100%;
+    padding: 5px; /* Reduced padding */
+    margin-bottom: 5px; /* Reduced margin */
+    border: none;
+    border-radius: 5px;
+}
+
+#sidebar .btn, #hotspotSidebar .btn {
+    width: 100%;
+    padding: 5px; /* Smaller padding */
+    margin-bottom: 5px; /* Reduced margin */
+    background-color: #ffc107;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    color: #343a40;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center the text horizontally */
+}
+
+#sidebar .btn:hover, #hotspotSidebar .btn:hover {
+    background-color: #e0a800;
+}
+
+#sidebar .btn.logout {
+    background-color: #dc3545;
+    color: #ffffff;
+    margin-top: auto; /* Ensure logout button is at the bottom but stays inside */
+    padding: 5px; /* Smaller padding */
+    font-size: 12px; /* Smaller font size */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Center the text horizontally */
+    line-height: 1.5; /* Ensure text is centered vertically */
+}
+
+#sidebar .btn.logout:hover {
+    background-color: #c82333;
+    color: #ffffff;
+}
+
+#hotspotSidebar ul {
+    list-style: none;
+    padding: 0;
+    max-height: calc(100vh - 80px); /* Adjust the height as needed */
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    flex-direction: column; /* Ensure hotspots are listed from top to bottom */
+    gap: 5px; /* Add some spacing between the items */
+}
+
+#hotspotSidebar ul li {
+    padding: 5px; /* Reduced padding */
+    background-color: #495057;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; /* Add this line */
+    word-wrap: break-word; /* Ensure long text wraps to the next line */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling within the cards */
+}
+
+#hotspotSidebar ul li button {
+    width: 70px; /* Adjust button width as needed */
+    padding: 3px 5px; /* Reduced padding */
+    margin: 2px 0; /* Add margin to separate the buttons */
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hotspotSidebar ul li button:first-child {
+    background-color: #28a745;
+}
+
+#hotspotSidebar ul li button:first-child:hover {
+    background-color: #218838;
+}
+
+#hotspotSidebar ul li button:hover {
+    background-color: #c82333;
+}
+
+#content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #ffffff;
+}
+
+#panorama {
+    width: 100%;
+    height: 100%;
+}
+
+#fallbackImage {
+    width: 100%;
+    height: 100%;
+}
+
+#fixedCursor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Pannellum tooltip styling */
+.pnlm-tooltip {
+    max-width: 200px;
+    word-wrap: break-word; /* Ensure long text wraps to the next line */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+}
