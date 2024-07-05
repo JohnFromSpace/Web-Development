@@ -1,8 +1,8 @@
 Финална версия на Проекта
 
-•	project_root/
-•	├── server/
-•	│   ├── config.php
+•	project_root/ <br />
+•	├── server/ <br />
+•	│   ├── config.php <br />
 •	│   ├── login.php
 •	│   ├── register.php
 •	│   ├── save_marker.php
