@@ -3,16 +3,16 @@
 •	project_root/ <br />
 •	├── server/ <br />
 •	│   ├── config.php <br />
-•	│   ├── login.php
-•	│   ├── register.php
-•	│   ├── save_marker.php
-•	│   ├── load_markers.php
-•	├── styles/
-•	│   ├── styles.css
-•	├── scripts/
-•	│   ├── scripts.js
-•	├── index.html
-•	├── main.html
+•	│   ├── login.php <br />
+•	│   ├── register.php <br />
+•	│   ├── save_marker.php <br />
+•	│   ├── load_markers.php <br />
+•	├── styles/ <br />
+•	│   ├── styles.css <br />
+•	├── scripts/ <br />
+•	│   ├── scripts.js <br />
+•	├── index.html <br />
+•	├── main.html <br />
 
 Инсталация
 За да инсталирате приложението, първо трябва да инсталирате технологиите, които се използват за разработката:
